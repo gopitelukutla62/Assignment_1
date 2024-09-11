@@ -1,0 +1,740 @@
+{
+	"info": {
+		"_postman_id": "eb14247a-83d0-4de0-9da6-4841fedb15e5",
+		"name": "Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30261573"
+	},
+	"item": [
+		{
+			"name": "Create a user",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"Id\",\"12\");\r",
+							"pm.collectionVariables.set(\"Name\",\"Nandini\");\r",
+							"pm.collectionVariables.set(\"Pswd\",\"Nandini@1234\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Post_verify responce code\",function(){\r",
+							"\r",
+							"    const rCode=pm.response.code;\r",
+							"    pm.expect(201).eql(rCode);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce status\",function(){\r",
+							"\r",
+							"    const rStatus=pm.response.status;\r",
+							"    pm.expect(\"Created\").eql(rStatus);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce time\",function(){\r",
+							"\r",
+							"    const rTime=pm.response.responseTime;\r",
+							"    pm.expect(2000).above(rTime);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \r\n    \"name\": \"morpheus\",\r\n    \"job\": \"leader\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Post_verify responce code\",function(){\r",
+							"\r",
+							"    const rCode=pm.response.code;\r",
+							"    pm.expect(200).eql(rCode);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce status\",function(){\r",
+							"\r",
+							"    const rStatus=pm.response.status;\r",
+							"    pm.expect(\"OK\").eql(rStatus);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce time\",function(){\r",
+							"\r",
+							"    const rTime=pm.response.responseTime;\r",
+							"    pm.expect(2000).above(rTime);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"mail\",\"eve.holt@reqres.in\");\r",
+							"pm.collectionVariables.set(\"psw\",\"pistol\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"eve.holt@reqres.in\",\r\n    \"password\": \"pistol\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/register",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Post_verify responce code\",function(){\r",
+							"\r",
+							"    const rCode=pm.response.code;\r",
+							"    pm.expect(200).eql(rCode);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce status\",function(){\r",
+							"\r",
+							"    const rStatus=pm.response.status;\r",
+							"    pm.expect(\"OK\").eql(rStatus);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce time\",function(){\r",
+							"\r",
+							"    const rTime=pm.response.responseTime;\r",
+							"    pm.expect(2000).above(rTime);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"mail\",\"eve.holt@reqres.in\");\r",
+							"pm.collectionVariables.set(\"psw\",\"cityslicka\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"eve.holt@reqres.in\",\r\n    \"password\": \"cityslicka\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/login",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Post_verify responce code\",function(){\r",
+							"\r",
+							"    const rCode=pm.response.code;\r",
+							"    pm.expect(204).eql(rCode);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce status\",function(){\r",
+							"\r",
+							"    const rStatus=pm.response.status;\r",
+							"    pm.expect(\"No Content\").eql(rStatus);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce time\",function(){\r",
+							"\r",
+							"    const rTime=pm.response.responseTime;\r",
+							"    pm.expect(2000).above(rTime);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unsuccessfull registration",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Post_verify responce code\",function(){\r",
+							"\r",
+							"    const rCode=pm.response.code;\r",
+							"    pm.expect(400).eql(rCode);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce status\",function(){\r",
+							"\r",
+							"    const rStatus=pm.response.status;\r",
+							"    pm.expect(\"Bad Request\").eql(rStatus);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce time\",function(){\r",
+							"\r",
+							"    const rTime=pm.response.responseTime;\r",
+							"    pm.expect(2000).above(rTime);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"mail\",\"sydney@fife\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"sydney@fife\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/register",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delay response",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Post_verify responce code\",function(){\r",
+							"\r",
+							"    const rCode=pm.response.code;\r",
+							"    pm.expect(200).eql(rCode);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce status\",function(){\r",
+							"\r",
+							"    const rStatus=pm.response.status;\r",
+							"    pm.expect(\"OK\").eql(rStatus);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce time\",function(){\r",
+							"\r",
+							"    const rTime=pm.response.responseTime;\r",
+							"    pm.expect(5000).above(rTime);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?delay=3",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "delay",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Post_verify responce code\",function(){\r",
+							"\r",
+							"    const rCode=pm.response.code;\r",
+							"    pm.expect(200).eql(rCode);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce status\",function(){\r",
+							"\r",
+							"    const rStatus=pm.response.status;\r",
+							"    pm.expect(\"OK\").eql(rStatus);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce time\",function(){\r",
+							"\r",
+							"    const rTime=pm.response.responseTime;\r",
+							"    pm.expect(2000).above(rTime);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"name\",\"morpheus\");\r",
+							"pm.collectionVariables.set(\"job\",\"zion resident\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"zion resident\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Single user not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Post_verify responce code\",function(){\r",
+							"\r",
+							"    const rCode=pm.response.code;\r",
+							"    pm.expect(404).eql(rCode);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce status\",function(){\r",
+							"\r",
+							"    const rStatus=pm.response.status;\r",
+							"    pm.expect(\"Not Found\").eql(rStatus);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce time\",function(){\r",
+							"\r",
+							"    const rTime=pm.response.responseTime;\r",
+							"    pm.expect(2000).above(rTime);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/23",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Single user found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Post_verify responce code\",function(){\r",
+							"\r",
+							"    const rCode=pm.response.code;\r",
+							"    pm.expect(200).eql(rCode);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce status\",function(){\r",
+							"\r",
+							"    const rStatus=pm.response.status;\r",
+							"    pm.expect(\"OK\").eql(rStatus);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce time\",function(){\r",
+							"\r",
+							"    const rTime=pm.response.responseTime;\r",
+							"    pm.expect(2000).above(rTime);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting list of resources",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Post_verify responce code\",function(){\r",
+							"\r",
+							"    const rCode=pm.response.code;\r",
+							"    pm.expect(200).eql(rCode);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce status\",function(){\r",
+							"\r",
+							"    const rStatus=pm.response.status;\r",
+							"    pm.expect(\"OK\").eql(rStatus);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce time\",function(){\r",
+							"\r",
+							"    const rTime=pm.response.responseTime;\r",
+							"    pm.expect(2000).above(rTime);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/unknown",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"unknown"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting list of users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Post_verify responce code\",function(){\r",
+							"\r",
+							"    const rCode=pm.response.code;\r",
+							"    pm.expect(200).eql(rCode);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce status\",function(){\r",
+							"\r",
+							"    const rStatus=pm.response.status;\r",
+							"    pm.expect(\"OK\").eql(rStatus);\r",
+							"})\r",
+							"pm.test(\"Post_verify responce time\",function(){\r",
+							"\r",
+							"    const rTime=pm.response.responseTime;\r",
+							"    pm.expect(2000).above(rTime);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "Id",
+			"value": ""
+		},
+		{
+			"key": "Name",
+			"value": ""
+		},
+		{
+			"key": "Pswd",
+			"value": ""
+		},
+		{
+			"key": "mail",
+			"value": ""
+		},
+		{
+			"key": "psw",
+			"value": ""
+		},
+		{
+			"key": "name",
+			"value": ""
+		},
+		{
+			"key": "job",
+			"value": ""
+		}
+	]
+}
